@@ -1,0 +1,16 @@
+<h1>Restaurants</h1>
+
+<ul>
+<% @restaurants.each do |restaurant| %>
+  <li>
+  <%= link_to restaurant.name, restaurant_path(restaurant) %>
+  - <%= restaurant.address %> -
+  <%= link_to 'remove', destroy_restaurant_path(restaurant), data: { turbo_method: 'delete'} %>
+  </li>
+<% end %>
+
+</ul>
+
+<p>
+  <%= link_to 'Add new Restaurant', new_restaurant_path %>
+</p>
